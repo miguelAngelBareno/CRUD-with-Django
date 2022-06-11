@@ -7,5 +7,5 @@ class Business(models.Model):
     phone = PhoneNumberField()  #cell phone or landline
 
     def __str__(self):
-        text = " company name :{0}  Nit: {1}"
+        text = " COMPANY NAME :{0} --- NIT: {1} ..."
         return text.format(self.company_name, self.NIT)
