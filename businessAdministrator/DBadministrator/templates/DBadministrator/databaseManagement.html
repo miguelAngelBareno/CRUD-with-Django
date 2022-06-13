@@ -1,12 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Management</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "./base.html" %}
+
+{% block title %} Database Management{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-mg-6 col-lg-4 col-xl-4">
+        <h2>Add company</h2>
+        <div class="card ">
+            <div class="card-body">
+                <form action="/registerCompany/" method="POST">{% csrf_token%}
+                    <div class="form-grup">
+                        <input type="text" id="txtCompanyName" name="txtCompanyName" class="form-control" placeholder="Company name" minlength= "3" maxlegth="20" required>
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" id="txtDirection" name="txtDirection" class="form-control" placeholder="Direction" maxlegth="20" required>
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" id="NumNIT" name="NumNit" class="form-control" placeholder="NIT number" minlength= "10" maxlegth="10" required>
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" id="celphone" name="celphone" class="form-control" placeholder="+573208549830" minlength= "0" maxlegth="15">
+                    </div>
+                    <div class="form-grup">
+                        <button type="submit" class="btn btn-success btn-block text-white">Submit</button>
+                        <button type="reset" class="btn btn-danger text-white">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-mg-6 col-lg-8 col-xl-8">
+        <h1>List of companies</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Company name</th>
+                        <th>Direction</th>
+                        <th>NIT</th>
+                        <th>Phone</th>
+                        <th colspan="2">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in bussines %}
+                    <tr>
+                        <td>{{item.company_name}}</td>
+                        <td>{{item.direction}}</td>
+                        <td>{{item.NIT}}</td>
+                        <td>{{item.phone}}</td>
+                        <td><a href="/editCompany/{{item.NIT}}" class="btn btn-info text-white">Edit</a></td>
+                        <td><a href="/deleteCompany/{{item.NIT}}" class="btn btn-danger text-white">Delet</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

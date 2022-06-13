@@ -19,5 +19,9 @@ from DBadministrator import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("databaseManagement", views.databaseManagement, name="databaseManagement"),
+    path("databaseManagement/", views.databaseManagement, name="databaseManagement"),
+    path("registerCompany/", views.registerCompany, name="registerCompany"),
+    path("editCompany/<code>", views.editCompany, name='editCompany'),
+    path("companyEdit/", views.companyEdit, name='companyEdit'),
+    path("deleteCompany/<code>", views.deleteCompany, name='deleteCompany'),
 ]

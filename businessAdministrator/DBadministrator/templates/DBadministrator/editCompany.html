@@ -1,0 +1,34 @@
+{% extends "./base.html" %}
+
+{% block title %} Database Management{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 offset-md4">
+        <h2>Edit company</h2>
+        <div class="card ">
+                    <div class="card-body">
+                        <form action="/companyEdit/" method="POST">{% csrf_token%}
+                            <div class="form-grup">
+                                <input type="text" id="txtCompanyName" name="txtCompanyName" value="{{company.company_name}}" class="form-control" placeholder="Company name" minlength= "3" maxlegth="20" required>
+                            </div>
+                            <div class="form-grup">
+                                <input type="text" id="txtDirection" name="txtDirection" value="{{company.direction}}" class="form-control" placeholder="Direction" maxlegth="20" required>
+                            </div>
+                            <div class="form-grup">
+                                <input type="text" id="NumNIT" name="NumNit" value="{{company.NIT}}" class="form-control" placeholder="NIT number" minlength= "10" maxlegth="10" readonly required>
+                            </div>
+                            <div class="form-grup">
+                                <input type="text" id="celphone" name="celphone" value="{{company.phone}}" class="form-control" placeholder="+573208549830" minlength= "0" maxlegth="15">
+                            </div>
+                            <div class="form-grup">
+                                <button type="submit" class="btn btn-success btn-block text-white">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <div>
+        <div>
+
+{% endblock %}

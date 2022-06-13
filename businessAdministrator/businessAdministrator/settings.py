@@ -53,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'businessAdministrator.urls'
 
+APPEND_SLASH=False
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
